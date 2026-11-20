@@ -56,7 +56,7 @@ def main():
     log("PRIORITY_OPEN", popen, flush=True)
     # full range async
     t0 = time.time()
-    res = asyncio.get_event_loop().run_until_complete(scan_range(TARGET, lo, hi, 2.0, 1500))
+    res = asyncio.run(scan_range(TARGET, lo, hi, 2.0, 1500))
     log("FULLSCAN_DONE elapsed=%.1fs open_count=%d open=%s" % (time.time()-t0, len(res), res), flush=True)
     # final marker line for log scraping
     print("RESULT job=%d ctrl=%s priority_open=%s full_open=%s" % (JOB, ctrl_res, popen, res), flush=True)
